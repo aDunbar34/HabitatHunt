@@ -1,15 +1,8 @@
-.home-page-title {
-  text-align: center;
-  margin: 20px 0;
+h1 {
+  font-size: 5rem;
+  align-items: center;
 }
 
-.home-page-title__main {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.home-page-title__subtitle {
-  font-size: 1.2rem;
-  color: #777;
+Button {
+  align-items: center;
 }

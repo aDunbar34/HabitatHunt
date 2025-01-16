@@ -6,3 +6,7 @@ h1 {
 Button {
   align-items: center;
 }
+
+body {
+  background-color: lightblue;
+}

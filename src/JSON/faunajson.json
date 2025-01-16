@@ -1,0 +1,10 @@
+{"type":"FeatureCollection","features":[
+    {"type":"Feature","properties": {"animal": "Panda", "habitat": ["China"]}},
+    {"type":"Feature","properties": {"animal": "Tasmanian Devil", "habitat": ["Australia"]}},
+    {"type":"Feature","properties": {"animal": "Black Caiman", "habitat": [["Colombia"], ["Brazil"], ["Ecuador"], ["Peru"], ["Bolivia"]]}},
+    {"type":"Feature","properties": {"animal": "Green Basilisk Lizard", "habitat": [["Costa Rica"], ["Panama"], ["Colombia"]]}},
+    {"type":"Feature","properties": {"animal": "Jaguar", "habitat": [["Mexico"], ["Belize"], ["Guatemala"], ["Honduras"], ["Nicaragua"], ["Costa Rica"], ["Panama"], ["Colombia"], ["Ecuador"], ["Venezuela"], ["Brazil"], ["Suriname"], ["Guyana"], ["French Guiana"], ["Peru"], ["Bolivia"], ["Paraguay"], ["Argentina"]]}},
+    {"type":"Feature","properties": {"animal": "Polar Bear", "habitat": [["Canada"], ["United States of America"], ["Russia"], ["Greenland"], ["Norway"]]}},
+    {"type":"Feature","properties": {"animal": "Red Tailed Monkey", "habitat": [["Democratic Republic of the Congo"], ["Angola"], ["United Republic of Tanzania"], ["Burundi"], ["Uganda"], ["South Sudan"], ["Central African Republic"]]}},
+    {"type":"Feature","properties": {"animal": "Takin", "habitat": [[["China"], ["Bhutan"], ["India"]]]}}
+]}

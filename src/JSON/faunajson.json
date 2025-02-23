@@ -1,10 +1,29 @@
 {"type":"FeatureCollection","features":[
-    {"type":"Feature","properties": {"animal": "Panda", "habitat": ["China"]}},
-    {"type":"Feature","properties": {"animal": "Tasmanian Devil", "habitat": ["Australia"]}},
-    {"type":"Feature","properties": {"animal": "Black Caiman", "habitat": [["Colombia"], ["Brazil"], ["Ecuador"], ["Peru"], ["Bolivia"]]}},
-    {"type":"Feature","properties": {"animal": "Green Basilisk Lizard", "habitat": [["Costa Rica"], ["Panama"], ["Colombia"]]}},
-    {"type":"Feature","properties": {"animal": "Jaguar", "habitat": [["Mexico"], ["Belize"], ["Guatemala"], ["Honduras"], ["Nicaragua"], ["Costa Rica"], ["Panama"], ["Colombia"], ["Ecuador"], ["Venezuela"], ["Brazil"], ["Suriname"], ["Guyana"], ["French Guiana"], ["Peru"], ["Bolivia"], ["Paraguay"], ["Argentina"]]}},
-    {"type":"Feature","properties": {"animal": "Polar Bear", "habitat": [["Canada"], ["United States of America"], ["Russia"], ["Greenland"], ["Norway"]]}},
-    {"type":"Feature","properties": {"animal": "Red Tailed Monkey", "habitat": [["Democratic Republic of the Congo"], ["Angola"], ["United Republic of Tanzania"], ["Burundi"], ["Uganda"], ["South Sudan"], ["Central African Republic"]]}},
-    {"type":"Feature","properties": {"animal": "Takin", "habitat": [[["China"], ["Bhutan"], ["India"]]]}}
+    {"type":"Feature","properties": {"animal": "Panda", "difficulty": "easy", "habitat": ["China"]}},
+    {"type":"Feature","properties": {"animal": "Lemur", "difficulty": "easy", "habitat": ["Madagascar"]}},
+    {"type":"Feature","properties": {"animal": "Kangaroo", "difficulty": "easy", "habitat": ["Australia"]}},
+    {"type":"Feature","properties": {"animal": "Kiwi Bird", "difficulty": "easy", "habitat": ["New Zealand"]}},
+    {"type":"Feature","properties": {"animal": "Tasmanian Devil", "difficulty": "easy","habitat": ["Australia"]}},
+    {"type":"Feature","properties": {"animal": "Emperor Penguin", "difficulty": "easy", "habitat": ["Antarctica"]}},
+    {"type":"Feature","properties": {"animal": "Koala", "difficulty": "easy", "habitat": [["Australia"], ["Papua New Guinea"]]}},
+    {"type":"Feature","properties": {"animal": "Bengal Tiger", "difficulty": "easy", "habitat": [["India"], ["Bangladesh"]]}},
+    {"type":"Feature","properties": {"animal": "Orangutan", "difficulty": "easy", "habitat": [["Indonesia"], ["Malaysia"]]}},
+    {"type":"Feature","properties": {"animal": "Komodo Dragon", "difficulty": "easy", "habitat": ["Indonesia"]}},
+    {"type":"Feature","properties": {"animal": "Proboscis monkey", "difficulty": "easy", "habitat": ["Indonesia"]}},
+    {"type":"Feature","properties": {"animal": "Quokka", "difficulty": "easy", "habitat": ["Australia"]}},
+    {"type":"Feature","properties": {"animal": "Javan Rhino", "difficulty": "easy", "habitat": [["Indonesia"], ["Vietnam"]]}},
+
+    {"type":"Feature","properties": {"animal": "Okapi", "difficulty": "medium","habitat": [["Democratic Republic of the Congo"], ["Uganda"], ["Rwanda"], ["Burundi"]]}}, 
+    {"type":"Feature","properties": {"animal": "Black Caiman", "difficulty": "medium","habitat": [["Colombia"], ["Brazil"], ["Ecuador"], ["Peru"], ["Bolivia"]]}},      
+    {"type":"Feature","properties": {"animal": "Black Caiman", "difficulty": "medium","habitat": [["Colombia"], ["Brazil"], ["Ecuador"], ["Peru"], ["Bolivia"]]}},
+    {"type":"Feature","properties": {"animal": "Green Basilisk Lizard", "difficulty": "medium", "habitat": [["Costa Rica"], ["Panama"], ["Colombia"]]}},
+    {"type":"Feature","properties": {"animal": "Polar Bear", "difficulty": "medium", "habitat": [["Canada"], ["United States of America"], ["Russia"], ["Greenland"], ["Norway"]]}},
+    {"type":"Feature","properties": {"animal": "Takin", "difficulty": "medium", "habitat": [[["China"], ["Bhutan"], ["India"]]]}},
+    {"type":"Feature","properties": {"animal": "Red Panda", "difficulty": "medium", "habitat": [["China"], ["Nepal"], ["India"], ["Bhutan"]]}},
+    
+
+    {"type":"Feature","properties": {"animal": "Red Tailed Monkey", "difficulty": "hard", "habitat": [["Democratic Republic of the Congo"], ["Angola"], ["United Republic of Tanzania"], ["Burundi"], ["Uganda"], ["South Sudan"], ["Central African Republic"]]}},
+    {"type":"Feature","properties": {"animal": "Jaguar", "difficulty": "hard", "habitat": [["Mexico"], ["Belize"], ["Guatemala"], ["Honduras"], ["Nicaragua"], ["Costa Rica"], ["Panama"], ["Colombia"], ["Ecuador"], ["Venezuela"], ["Brazil"], ["Suriname"], ["Guyana"], ["French Guiana"], ["Peru"], ["Bolivia"], ["Paraguay"], ["Argentina"]]}},
+    {"type":"Feature","properties": {"animal": "Wolverine", "difficulty": "hard", "habitat": [["Canada"], ["United States of America"], ["Norway"], ["Sweden"], ["Finland"], ["Russia"], ["Mongolia"], ["Colombia"]]}}
+
 ]}

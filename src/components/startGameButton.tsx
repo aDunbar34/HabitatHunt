@@ -1,29 +1,31 @@
 import React from "react";
+import "./css/startGameButton.css";
 
 interface Props {
   border: string;
-  color: string;
   children?: React.ReactNode;
   height: string;
   onClick: () => void;
   radius: string;
   width: string;
+  hover: string;
+  className?: string;
 }
 
 const startGameButton: React.FC<Props> = ({
   border,
-  color,
   children,
   height,
   onClick,
   radius,
   width,
+  className,
 }) => {
   return (
     <button
       onClick={onClick}
+      className={`start-game-btn ${className}`}
       style={{
-        backgroundColor: color,
         border,
         borderRadius: radius,
         height,

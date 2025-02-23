@@ -48,12 +48,21 @@ function LoadAnimal({ randomAnimal }: LoadAnimalProps) {
                 style={{
                   width: "24rem",
                   height: "24rem",
-                  borderRadius: "8px",
+                  border: "5px solid #3490c2",
+                  borderRadius: "50px",
                   marginBottom: "10px",
                   float: "left",
                 }}
               />
-              <h2>{randomAnimal}</h2>
+              <h2
+                style={{
+                  fontSize: "2rem",
+                  color: "#3490c2",
+                  textTransform: "uppercase",
+                }}
+              >
+                {randomAnimal}
+              </h2>
             </div>
           ) : (
             <p>No image available</p>

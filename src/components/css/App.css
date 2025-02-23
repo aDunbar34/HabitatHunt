@@ -8,5 +8,5 @@ Button {
 }
 
 body {
-  background-color: lightblue;
+  background: linear-gradient(to bottom, #0a192f, #112240);;
 }

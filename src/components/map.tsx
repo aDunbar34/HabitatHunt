@@ -62,7 +62,7 @@ function openMap({
     <>
       <MapContainer
         center={[51.505, -0.09]}
-        zoom={2}
+        zoom={3}
         minZoom={2}
         maxZoom={4}
         zoomControl={true}
@@ -72,17 +72,17 @@ function openMap({
           [90, 180],
         ]}
         style={{
-          height: "99vh",
+          height: "90vh",
           width: "75vw",
           float: "right",
 
-          border: "5px solid #ccc",
+          border: "5px solid #3490c2",
           borderRadius: "10px",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+          boxShadow: "0 4p x 8px rgba(0, 0, 0, 0.2)",
         }}
       >
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}{r}.png"
+          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
         />
 

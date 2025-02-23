@@ -7,18 +7,19 @@ function GuessList({
     <div
       style={{
         width: "21vw",
+        color: "#3490c2",
         padding: "0.7rem",
-        background: "#cafcfb",
-        border: "3px solid #ccc",
+        background: "#1b3a4b",
+        border: "5px solid #3490c2",
         borderRadius: "50px",
         overflowY: "auto",
         height: "30vh",
+        fontSize: "1.2rem",
       }}
     >
       <h2
         style={{
-          textDecoration: "underline  2px",
-          fontSize: "1.5rem",
+          fontSize: "1.4rem",
         }}
       >
         Highlighted Countries:

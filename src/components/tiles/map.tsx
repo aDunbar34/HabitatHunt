@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 // This is where I import my GeoJSON data
-import geoJsonData from "../JSON/geojson.json";
+import geoJsonData from "../../JSON/geojson.json";
 import { GeoJsonObject } from "geojson";
 
 // Type assertion for the json data

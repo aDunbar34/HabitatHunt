@@ -1,0 +1,39 @@
+.guess-list {
+    color: #3490c2;
+    padding: 0.7rem;
+    background-color: #1b3a4b;
+    border: 5px solid #3490c2;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    overflow-y: auto;
+    max-height: 80vh;
+    width: 20vw;
+}
+.map {
+    border: 5px solid #3490c2;
+    border-radius: 10px;
+    box-shadow: 0 4p x 8px rgba(0, 0, 0, 0.2) ;
+    height: 80vh;
+    width: 80vw;
+    max-height: 100vhvh;
+    max-width: 70vw;
+    overflow: hidden;
+}
+
+.streakKeeper {
+    width: 10vw;
+    color: #3490c2;
+    padding: 0.7rem;
+    background-color: #1b3a4b;
+    border: 5px solid #3490c2;
+    border-radius: 50px;
+    overflow-y: auto;
+    height: 5vh;
+    font-size: 1.2rem;
+
+}
+
+.streakKeeper h1 {
+    font-size: 1rem;
+    text-align: center;
+}

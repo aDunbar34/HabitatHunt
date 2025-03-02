@@ -46,8 +46,8 @@ function LoadAnimal({ randomAnimal }: LoadAnimalProps) {
                 src={animalImage}
                 alt={randomAnimal}
                 style={{
-                  width: "24rem",
-                  height: "24rem",
+                  width: "20vw",
+                  height: "30vh",
                   border: "5px solid #3490c2",
                   borderRadius: "50px",
                   marginBottom: "10px",

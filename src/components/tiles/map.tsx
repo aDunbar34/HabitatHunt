@@ -61,6 +61,7 @@ function openMap({
   return (
     <>
       <MapContainer
+        className="map"
         center={[51.505, -0.09]}
         zoom={3}
         minZoom={2}
@@ -71,15 +72,6 @@ function openMap({
           [-90, -180],
           [90, 180],
         ]}
-        style={{
-          height: "90vh",
-          width: "75vw",
-          float: "right",
-
-          border: "5px solid #3490c2",
-          borderRadius: "10px",
-          boxShadow: "0 4p x 8px rgba(0, 0, 0, 0.2)",
-        }}
       >
         <TileLayer
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"

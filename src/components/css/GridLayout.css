@@ -1,0 +1,32 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr; /* Two equal columns */
+    gap: 1rem; /* Space between columns */
+    height: 100vh; /* Full viewport height */
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .left-content, .right-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  .left-content {
+    background-color: #0a192f;
+
+  }
+  
+  .right-content {
+    background-color: #112240
+  }
+  
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: 1fr; /* Single column for smaller screens */
+    }
+  }

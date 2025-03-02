@@ -2,13 +2,15 @@ import OpenMap from "../../components/tiles/map";
 import LoadAnimal from "../../components/tiles/animal";
 import GuessList from "../../components/tiles/guessList";
 import Submit from "../../components/tiles/submit";
+import StreakKeeper from "../../components/tiles/streakKeeper";
+import GameLayout from "../layouts/GameLayout";
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import animalJsonData from "../../JSON/faunajson.json";
 import { useNavigate } from "react-router-dom";
 
-function Game() {
+const Game: React.FC = () => {
   const { difficulty } = useParams<{ difficulty: string }>();
   console.log("Difficulty:", difficulty);
   const navigate = useNavigate();
@@ -103,17 +105,22 @@ function Game() {
   };
 
   return (
-    <>
-      <OpenMap
-        highlightedCountries={highlightedCountries}
-        setHighlightedCountries={setHighlightedCountries}
-      />
-      <LoadAnimal randomAnimal={randomAnimal} />
-      <GuessList highlightedCountries={highlightedCountries} />
-      <Submit
-        highlightedCountries={highlightedCountries}
-        onSubmit={compareCountries}
-      />
+    <GameLayout>
+      <div className="left-content">
+        <StreakKeeper />
+        <LoadAnimal randomAnimal={randomAnimal} />
+        <GuessList highlightedCountries={highlightedCountries} />
+      </div>
+      <div className="right-content">
+        <OpenMap
+          highlightedCountries={highlightedCountries}
+          setHighlightedCountries={setHighlightedCountries}
+        />
+        <Submit
+          highlightedCountries={highlightedCountries}
+          onSubmit={compareCountries}
+        />
+      </div>
       {showPopup && (
         <div
           style={{
@@ -150,8 +157,8 @@ function Game() {
         </div>
       )}
       );
-    </>
+    </GameLayout>
   );
-}
+};
 
 export default Game;

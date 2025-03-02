@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/startGameButton.css";
+import "../css/components.css";
 
 interface Props {
   border: string;

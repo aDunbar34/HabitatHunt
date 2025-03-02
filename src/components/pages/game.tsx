@@ -4,6 +4,9 @@ import GuessList from "../../components/tiles/guessList";
 import Submit from "../../components/tiles/submit";
 import StreakKeeper from "../../components/tiles/streakKeeper";
 import GameLayout from "../layouts/GameLayout";
+import { useStreak } from "../contexts/StreakContexts";
+
+import "../css/components.css";
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -17,6 +20,8 @@ const Game: React.FC = () => {
   const [highlightedCountries, setHighlightedCountries] = useState<string[]>(
     []
   );
+
+  const { streak, incrementStreak } = useStreak();
 
   const [randomAnimal, setRandomAnimal] = useState<string>("");
   const [correctCountries, setCorrectCountries] = useState<string[]>([]);
@@ -50,7 +55,7 @@ const Game: React.FC = () => {
 
   useEffect(() => {
     setPopupMessage(
-      "The aim of this game is to make accurate guesses on the native countries of the animal you see on the left side of the screen <br /> You're selected countries will appear to the left as well in the list. Select countries by simply clicking them on the map! <br /> Once you are confident with your answers, hit Submit and see if you gothem all correct!"
+      "The aim of this game is to make accurate guesses on the native countries of the animal you see on the left side of the screen. Your selected countries will appear to the left as well in the list. Select countries by simply clicking them on the map! Once you are confident with your answers, hit Submit and see if you got them all correct! As an extra bit of fun, try and see how many you can get in a row!"
     );
     randomize();
   }, []);
@@ -76,6 +81,7 @@ const Game: React.FC = () => {
       setPopupMessage("Correct! All countries match!");
       setOnCloseCallback(true);
       setShowPopup(true);
+      incrementStreak();
     } else if (
       correctCount >= totalCorrect / 2 &&
       correctCount === highlightedCountries.length
@@ -94,8 +100,8 @@ const Game: React.FC = () => {
 
   const handleClosePopup = () => {
     if (onCloseCallback == true) {
-      navigate(`/game/${difficulty}`, { replace: true }); // navigate to the current difficulty route
-      randomize(); // Restart the game by calling the randomize function
+      navigate(`/game/${difficulty}`, { replace: true });
+      randomize();
       setShowPopup(false);
       setOnCloseCallback(false);
       setHighlightedCountries([]);
@@ -107,7 +113,7 @@ const Game: React.FC = () => {
   return (
     <GameLayout>
       <div className="left-content">
-        <StreakKeeper />
+        <StreakKeeper streak={streak} />
         <LoadAnimal randomAnimal={randomAnimal} />
         <GuessList highlightedCountries={highlightedCountries} />
       </div>
@@ -122,38 +128,9 @@ const Game: React.FC = () => {
         />
       </div>
       {showPopup && (
-        <div
-          style={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            backgroundColor: "#112240",
-            padding: "2rem",
-            border: "1px black",
-            boxShadow: "0.5px 1px 1px 2px white",
-            zIndex: 1000,
-            color: "#3490c2",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
-          }}
-        >
+        <div className="PopupMessage">
           <p>{popupMessage}</p>
-          <button
-            onClick={handleClosePopup}
-            style={{
-              marginRight: "0.1rem",
-              cursor: "pointer",
-              color: "#3490c2",
-              backgroundColor: "#1b3a4b",
-            }}
-          >
-            {" "}
-            Close{" "}
-          </button>
+          <button onClick={handleClosePopup}> Close </button>
         </div>
       )}
       );

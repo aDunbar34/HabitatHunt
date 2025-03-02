@@ -1,11 +1,11 @@
 import "../css/components.css";
 
-function streakKeeper() {
+const StreakKeeper = ({ streak }: { streak: number }) => {
   return (
     <div className="streakKeeper">
-      <h1>Streak:</h1>
+      <h1>Streak: {streak}</h1>
     </div>
   );
-}
+};
 
-export default streakKeeper;
+export default StreakKeeper;

@@ -1,3 +1,4 @@
+/* STYLING FOR THE GUESS LIST COMPONENT */
 .guess-list {
     color: #3490c2;
     padding: 0.7rem;
@@ -9,6 +10,8 @@
     max-height: 80vh;
     width: 20vw;
 }
+
+/* STYLING FOR THE MAP COMPONENT - STYLING FOR THE MAP LAYERS FOR COUNTRY STYLING CAN BE FOUND IN MAP.TSX */
 .map {
     border: 5px solid #3490c2;
     border-radius: 10px;
@@ -20,6 +23,7 @@
     overflow: hidden;
 }
 
+/* STYLING FOR THE STREAKKEEPER COMPONENT */
 .streakKeeper {
     width: 10vw;
     color: #3490c2;
@@ -30,10 +34,97 @@
     overflow-y: auto;
     height: 5vh;
     font-size: 1.2rem;
+    
 
 }
 
+/* STYLING FOR THE TEXT WITHIN THE STREAKKEEPER */
 .streakKeeper h1 {
     font-size: 1rem;
     text-align: center;
+    text-transform: uppercase;
+}
+
+/* STYLING FOR THE SUBMIT BUTTON */
+.SubmitButton button {
+    
+    padding: 10px 20px;
+    background-color: #1b3a4b;
+    color: #3490c2;
+    border: 3px solid #3490c2;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: SuperNormalFont;
+    text-transform: uppercase;
+}
+
+/* STYLING FOR THE HOME PAGE TITLE */
+.HomePageTitle {
+    color: #1b3a4b;
+    font-size: 4rem;
+    text-align: center;
+    font: bolder;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    overflow-y: auto;
+    max-width: fit-content;
+}
+
+/* STYLING FOR THE START GAME BUTTON */
+.start-game-btn {
+    font-size: 1.2rem;
+    transition: all 0.6s ease-in-out;
+    background-color: #1b3a4b;
+    text-transform: uppercase;
+    cursor: pointer;
+    max-width: fit-content;
+    max-height: 15vh;
+  }
+  
+  /* STYLING FOR WHEN THE USER HOVERS OVER THE START GAME BUTTON */
+  .start-game-btn:hover {
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
+
+/* STYLING FOR THE POPUP THAT APPEARS AFTER START GAME BUTTON HAS BEEN PRESSED */
+.difficultyPopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #112240;
+    padding: 1rem;
+    border: 1px black;
+    box-shadow: 0.5px 1px 1px 2px white;
+    z-index: 1000;
+}
+
+/* STYLING FOR THE POPUP MESSAGE AT THE START OF GAME.TSX */
+.PopupMessage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #112240;
+    padding: 1rem;
+    border: 1px black;
+    box-shadow: 0.5px 1px 1px 2px white;
+    z-index: 1000;
+    color: #3490c2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* STYLING FOR THE BUTTON WITHIN THE POPUP MESSAGE OF GAME.TSX */
+.PopupMessage button {
+    margin-right: 0.1rem;
+    cursor: pointer;
+    color: #3490c2;
+    background-color: #1b3a4b;
 }

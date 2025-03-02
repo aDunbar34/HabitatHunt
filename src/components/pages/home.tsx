@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import HomePageTitle from "../../components/tiles/HomePageTitle";
 import Button from "../../components/tiles/startGameButton";
+import "../css/components.css";
 
 function Home() {
   const [showPopup, setShowPopup] = useState(false);
@@ -36,19 +37,7 @@ function Home() {
       />
 
       {showPopup && (
-        <div
-          style={{
-            position: "fixed",
-            top: "55%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            backgroundColor: "#112240",
-            padding: "0.5rem",
-            border: "1px black",
-            boxShadow: "0.5px 1px 1px 2px white",
-            zIndex: 1000,
-          }}
-        >
+        <div className="difficultyPopup">
           <button
             onClick={() => handleNavigate("easy")}
             style={{ marginRight: "0.1rem", cursor: "pointer" }}

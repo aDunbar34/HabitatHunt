@@ -1,12 +1,12 @@
-h1 {
-  font-size: 5rem;
-  align-items: center;
-}
-
-Button {
-  align-items: center;
+@font-face {
+  font-family: "SuperNormalFont";
+  src: url("/fonts/SuperNormal-xRoj5.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
 }
 
 body {
-  background: linear-gradient(to bottom, #0a192f, #112240);;
+  background: linear-gradient(to right, #0a192f, #112240);
+  font-family: "SuperNormalFont", sans-serif;
+
 }

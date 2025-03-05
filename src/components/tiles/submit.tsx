@@ -1,8 +1,8 @@
 import "../css/components.css";
 
 interface SubmitProps {
-  highlightedCountries: string[]; // Array of strings
-  onSubmit: () => void; // Function with no arguments and no return value
+  highlightedCountries: string[];
+  onSubmit: () => void;
 }
 
 function Submit({ onSubmit }: SubmitProps) {

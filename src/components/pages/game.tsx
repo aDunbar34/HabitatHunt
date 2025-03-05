@@ -4,6 +4,7 @@ import GuessList from "../../components/tiles/guessList";
 import Submit from "../../components/tiles/submit";
 import StreakKeeper from "../../components/tiles/streakKeeper";
 import GameLayout from "../layouts/GameLayout";
+import FinishButton from "../tiles/finishButton";
 import { useStreak } from "../contexts/StreakContexts";
 
 import "../css/components.css";
@@ -116,6 +117,8 @@ const Game: React.FC = () => {
         <StreakKeeper streak={streak} />
         <LoadAnimal randomAnimal={randomAnimal} />
         <GuessList highlightedCountries={highlightedCountries} />
+        <FinishButton streak={streak}/>
+
       </div>
       <div className="right-content">
         <OpenMap

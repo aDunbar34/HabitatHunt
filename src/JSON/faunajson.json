@@ -12,6 +12,7 @@
     {"type":"Feature","properties": {"animal": "Proboscis monkey", "difficulty": "easy", "habitat": ["Indonesia"]}},
     {"type":"Feature","properties": {"animal": "Quokka", "difficulty": "easy", "habitat": ["Australia"]}},
     {"type":"Feature","properties": {"animal": "Javan Rhino", "difficulty": "easy", "habitat": [["Indonesia"], ["Vietnam"]]}},
+    
 
     {"type":"Feature","properties": {"animal": "Okapi", "difficulty": "medium","habitat": [["Democratic Republic of the Congo"], ["Uganda"], ["Rwanda"], ["Burundi"]]}}, 
     {"type":"Feature","properties": {"animal": "Black Caiman", "difficulty": "medium","habitat": [["Colombia"], ["Brazil"], ["Ecuador"], ["Peru"], ["Bolivia"]]}},      

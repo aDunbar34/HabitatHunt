@@ -15,12 +15,12 @@ import animalJsonData from "../../JSON/faunajson.json";
 import { useNavigate } from "react-router-dom";
 
 const Game: React.FC = () => {
+  const [guessCount, setGuessCount] = useState(0);
   const { difficulty } = useParams<{ difficulty: string }>();
   console.log("Difficulty:", difficulty);
   const navigate = useNavigate();
-  const [highlightedCountries, setHighlightedCountries] = useState<string[]>(
-    []
-  );
+  const [highlightedCountries, setHighlightedCountries] = useState<string[]>([]);
+  const [highlightedRegions, setHighlightedRegions] = useState<string[]>([]);
 
   const { streak, incrementStreak } = useStreak();
 
@@ -29,6 +29,7 @@ const Game: React.FC = () => {
 
   const [onCloseCallback, setOnCloseCallback] = useState(false);
   const [showPopup, setShowPopup] = useState(true);
+  const [showHintPopup, setHintPopUp] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
 
   const randomize = () => {
@@ -61,6 +62,29 @@ const Game: React.FC = () => {
     randomize();
   }, []);
 
+  // if (
+    //   correctCount === totalCorrect &&
+    //   correctCount === highlightedCountries.length
+    // ) {
+    //   setPopupMessage("Correct! All countries match!");
+    //   setOnCloseCallback(true);
+    //   setShowPopup(true);
+    //   incrementStreak();
+    // } else if (
+    //   correctCount >= totalCorrect / 2 &&
+    //   correctCount === highlightedCountries.length
+    // ) {
+    //   setPopupMessage(
+    //     `You're getting close! (${correctCount}/${totalCorrect})`
+    //   );
+    //   setShowPopup(true);
+    // } else {
+    //   setPopupMessage(
+    //     `Not quite, try again! (${correctCount}/${totalCorrect})`
+    //   );
+    //   setShowPopup(true);
+    // }
+
   const compareCountries = () => {
     if (highlightedCountries.length === 0) {
       setPopupMessage("No countries selected!");
@@ -75,29 +99,51 @@ const Game: React.FC = () => {
     const totalCorrect = correctCountries.length;
     const correctCount = matches.length;
 
-    if (
-      correctCount === totalCorrect &&
-      correctCount === highlightedCountries.length
-    ) {
-      setPopupMessage("Correct! All countries match!");
-      setOnCloseCallback(true);
-      setShowPopup(true);
-      incrementStreak();
-    } else if (
-      correctCount >= totalCorrect / 2 &&
-      correctCount === highlightedCountries.length
-    ) {
-      setPopupMessage(
-        `You're getting close! (${correctCount}/${totalCorrect})`
-      );
-      setShowPopup(true);
-    } else {
-      setPopupMessage(
-        `Not quite, try again! (${correctCount}/${totalCorrect})`
-      );
-      setShowPopup(true);
-    }
+
+    
+    switch (true) {
+      case (correctCount === totalCorrect && correctCount === highlightedCountries.length):
+        setPopupMessage("Correct! All countries match!");
+        setOnCloseCallback(true);
+        setShowPopup(true);
+        incrementStreak();
+        console.log(guessCount);
+        setGuessCount(0);
+        console.log(guessCount);
+        break;
+      
+      case (correctCount >= totalCorrect / 2):
+        setGuessCount(guessCount => guessCount + 1);
+        console.log(guessCount);
+        
+        switch (guessCount) {
+          case 1 || 2:
+            setPopupMessage("You're on the right track! (${correctCount}/${totalCorrect} guessed correctly)")
+            break;
+ 
+          default:
+            handleShowHintPopup();
+            handleCloseHintPopup();
+            break;
+        }
+        break;
+
+      default:
+
+    } 
   };
+
+  const handleCloseHintPopup = () => {
+    setHintPopUp(false);
+  };
+
+  const handleShowHintPopup = () => {
+    setHintPopUp(true);
+  };
+
+  const handleHint = () => {
+    handleCloseHintPopup();
+  }
 
   const handleClosePopup = () => {
     if (onCloseCallback == true) {
@@ -111,9 +157,23 @@ const Game: React.FC = () => {
     }
   };
 
+
+  const continentCountries: Record<string, string[]> = {
+    Europe: ["France", "Germany", "Spain", "Italy", "United Kingdom"],
+    Africa: ["Nigeria", "Egypt", "South Africa", "Kenya", "Ethiopia", "Madagascar"],
+    Asia: ["China", "India", "Japan", "South Korea", "Indonesia"],
+    Oceania: ["Australlia", "New Zealand"]
+    // Add more continents or regions as needed
+  };
+
+  const highlightRegion = (region: string) => {
+    setHighlightedRegions(continentCountries[region]);
+  };
+
   return (
     <GameLayout>
       <div className="left-content">
+      <button onClick={() => highlightRegion("Europe")}>Highlight Europe</button>
         <StreakKeeper streak={streak} />
         <LoadAnimal randomAnimal={randomAnimal} />
         <GuessList highlightedCountries={highlightedCountries} />
@@ -124,6 +184,8 @@ const Game: React.FC = () => {
         <OpenMap
           highlightedCountries={highlightedCountries}
           setHighlightedCountries={setHighlightedCountries}
+          highlightedRegions={highlightedRegions}
+          setHighlightedRegions={setHighlightedRegions}
         />
         <Submit
           highlightedCountries={highlightedCountries}
@@ -135,8 +197,16 @@ const Game: React.FC = () => {
           <p>{popupMessage}</p>
           <button onClick={handleClosePopup}> Close </button>
         </div>
+      )});
+
+      {showHintPopup && (
+        <div className="hintPopup">
+          <p>{popupMessage}</p>
+          <button onClick={handleCloseHintPopup}> Close </button>
+          <button onClick={handleHint}> Give Hint </button>
+
+        </div>
       )}
-      );
     </GameLayout>
   );
 };

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -12,9 +12,13 @@ const geoJsonTypedData: GeoJsonObject = geoJsonData as GeoJsonObject;
 function openMap({
   highlightedCountries,
   setHighlightedCountries,
+  highlightedRegions,
+  setHighlightedRegions,
 }: {
   highlightedCountries: string[];
   setHighlightedCountries: React.Dispatch<React.SetStateAction<string[]>>;
+  highlightedRegions: string[];
+  setHighlightedRegions: React.Dispatch<React.SetStateAction<string[]>>;
 }) {
   // Base styling for all countries
   const countryStyle = {
@@ -30,6 +34,14 @@ function openMap({
     color: "black",
     weight: 1,
     fillOpacity: 0.5,
+  };
+
+   // Styling for a region highlighted for hint purposes
+   const hintStyle = {
+    fillColor: "#ffcc00", // Yellow for continent highlighting
+    color: "black",
+    weight: 1,
+    fillOpacity: 0.4,
   };
 
   // Function to handle clicks on a country
@@ -58,6 +70,7 @@ function openMap({
     });
   };
 
+
   return (
     <>
       <MapContainer
@@ -78,19 +91,26 @@ function openMap({
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
         />
 
-        <GeoJSON
-          data={geoJsonTypedData}
-          style={(feature) => {
-            if (!feature || !feature.properties) {
-              return countryStyle; // Fallback style if feature or properties are undefined
-            }
+      <GeoJSON
+        data={geoJsonTypedData}
+        style={(feature) => {
+          if (!feature || !feature.properties) {
+            return countryStyle;
+          }
 
-            return highlightedCountries.includes(feature.properties.name)
-              ? highlightStyle
-              : countryStyle;
-          }}
-          onEachFeature={onEachCountry}
-        />
+          const countryName = feature.properties.name;
+
+          if (highlightedCountries.includes(countryName)) {
+            return highlightStyle; // Bright green for manually selected
+          }
+          if (highlightedRegions.includes(countryName)) {
+            return hintStyle; // Yellow for continent highlights
+          }
+
+          return countryStyle;
+        }}
+        onEachFeature={onEachCountry}
+      />
       </MapContainer>
     </>
   );

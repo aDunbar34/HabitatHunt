@@ -9,7 +9,6 @@ function LoadAnimal({ randomAnimal }: LoadAnimalProps) {
     <div style={{ textAlign: "center", padding: "20px" }}>
       <div>
         <div>
-          {randomAnimal}
           <img
             src={"../src/assets/images/" + randomAnimal + ".jpeg"}
             alt="Image"

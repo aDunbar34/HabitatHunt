@@ -1,5 +1,4 @@
 {"type":"FeatureCollection","features":[
-<<<<<<< HEAD
     {"type":"Feature","properties": {"animal": "Panda", "difficulty": "easy", "habitat": ["China"], "continent": ["Asia"]}},
     {"type":"Feature","properties": {"animal": "Lemur", "difficulty": "easy", "habitat": ["Madagascar"], "continent": ["Africa"]}},
     {"type":"Feature","properties": {"animal": "Kangaroo", "difficulty": "easy", "habitat": ["Australia"], "continent": ["Oceania"]}},
@@ -13,33 +12,18 @@
     {"type":"Feature","properties": {"animal": "Proboscis monkey", "difficulty": "easy", "habitat": ["Indonesia"], "continent": ["Asia"]}},
     {"type":"Feature","properties": {"animal": "Quokka", "difficulty": "easy", "habitat": ["Australia"], "continent": ["Oceania"]}},
     {"type":"Feature","properties": {"animal": "Javan Rhino", "difficulty": "easy", "habitat": [["Indonesia"], ["Vietnam"]], "continent": ["Asia"]}},
-=======
-    {"type":"Feature","properties": {"animal": "Panda", "difficulty": "easy", "habitat": ["China"]}},
-    {"type":"Feature","properties": {"animal": "Lemur", "difficulty": "easy", "habitat": ["Madagascar"]}},
-    {"type":"Feature","properties": {"animal": "Kangaroo", "difficulty": "easy", "habitat": ["Australia"]}},
-    {"type":"Feature","properties": {"animal": "Kiwi Bird", "difficulty": "easy", "habitat": ["New Zealand"]}},
-    {"type":"Feature","properties": {"animal": "Tasmanian Devil", "difficulty": "easy","habitat": ["Australia"]}},
-    {"type":"Feature","properties": {"animal": "Emperor Penguin", "difficulty": "easy", "habitat": ["Antarctica"]}},
-    {"type":"Feature","properties": {"animal": "Koala", "difficulty": "easy", "habitat": [["Australia"], ["Papua New Guinea"]]}},
-    {"type":"Feature","properties": {"animal": "Bengal Tiger", "difficulty": "easy", "habitat": [["India"], ["Bangladesh"]]}},
-    {"type":"Feature","properties": {"animal": "Orangutan", "difficulty": "easy", "habitat": [["Indonesia"], ["Malaysia"]]}},
-    {"type":"Feature","properties": {"animal": "Komodo Dragon", "difficulty": "easy", "habitat": ["Indonesia"]}},
-    {"type":"Feature","properties": {"animal": "Proboscis monkey", "difficulty": "easy", "habitat": ["Indonesia"]}},
-    {"type":"Feature","properties": {"animal": "Quokka", "difficulty": "easy", "habitat": ["Australia"]}},
-    {"type":"Feature","properties": {"animal": "Javan Rhino", "difficulty": "easy", "habitat": [["Indonesia"], ["Vietnam"]]}},
-    
->>>>>>> 2118d6020ff0b5b7a2a1982267602a2ee52503eb
+
 
     {"type":"Feature","properties": {"animal": "Okapi", "difficulty": "medium","habitat": [["Democratic Republic of the Congo"], ["Uganda"], ["Rwanda"], ["Burundi"]], "continent": ["Africa"]}}, 
-    {"type":"Feature","properties": {"animal": "Black Caiman", "difficulty": "medium","habitat": [["Colombia"], ["Brazil"], ["Ecuador"], ["Peru"], ["Bolivia"]], "continent": ["South America"]}},      
-    {"type":"Feature","properties": {"animal": "Black Caiman", "difficulty": "medium","habitat": [["Colombia"], ["Brazil"], ["Ecuador"], ["Peru"], ["Bolivia"]], "continent": ["South America"]}},
-    {"type":"Feature","properties": {"animal": "Green Basilisk Lizard", "difficulty": "medium", "habitat": [["Costa Rica"], ["Panama"], ["Colombia"]], "continent": ["North America", "South America"]}},
-    {"type":"Feature","properties": {"animal": "Polar Bear", "difficulty": "medium", "habitat": [["Canada"], ["United States of America"], ["Russia"], ["Greenland"], ["Norway"]], "continent": ["North America", "Europe", "Asia"]}},
+    {"type":"Feature","properties": {"animal": "Black Caiman", "difficulty": "medium","habitat": [["Colombia"], ["Brazil"], ["Ecuador"], ["Peru"], ["Bolivia"]], "continent": ["SouthAmerica"]}},      
+    {"type":"Feature","properties": {"animal": "Black Caiman", "difficulty": "medium","habitat": [["Colombia"], ["Brazil"], ["Ecuador"], ["Peru"], ["Bolivia"]], "continent": ["SouthAmerica"]}},
+    {"type":"Feature","properties": {"animal": "Green Basilisk Lizard", "difficulty": "medium", "habitat": [["Costa Rica"], ["Panama"], ["Colombia"]], "continent": ["NorthAmerica", "SouthAmerica"]}},
+    {"type":"Feature","properties": {"animal": "Polar Bear", "difficulty": "medium", "habitat": [["Canada"], ["United States of America"], ["Russia"], ["Greenland"], ["Norway"]], "continent": ["NorthAmerica", "Europe", "Asia"]}},
     {"type":"Feature","properties": {"animal": "Takin", "difficulty": "medium", "habitat": [[["China"], ["Bhutan"], ["India"]]], "continent": ["Asia"]}},
     {"type":"Feature","properties": {"animal": "Red Panda", "difficulty": "medium", "habitat": [["China"], ["Nepal"], ["India"], ["Bhutan"]], "continent": ["Asia"]}},
     
     {"type":"Feature","properties": {"animal": "Red Tailed Monkey", "difficulty": "hard", "habitat": [["Democratic Republic of the Congo"], ["Angola"], ["United Republic of Tanzania"], ["Burundi"], ["Uganda"], ["South Sudan"], ["Central African Republic"]], "continent": ["Africa"]}},
-    {"type":"Feature","properties": {"animal": "Jaguar", "difficulty": "hard", "habitat": [["Mexico"], ["Belize"], ["Guatemala"], ["Honduras"], ["Nicaragua"], ["Costa Rica"], ["Panama"], ["Colombia"], ["Ecuador"], ["Venezuela"], ["Brazil"], ["Suriname"], ["Guyana"], ["French Guiana"], ["Peru"], ["Bolivia"], ["Paraguay"], ["Argentina"]], "continent": ["North America", "South America"]}},
-    {"type":"Feature","properties": {"animal": "Wolverine", "difficulty": "hard", "habitat": [["Canada"], ["United States of America"], ["Norway"], ["Sweden"], ["Finland"], ["Russia"], ["Mongolia"], ["Colombia"]], "continent": ["North America", "Europe", "Asia", "South America"]}}
+    {"type":"Feature","properties": {"animal": "Jaguar", "difficulty": "hard", "habitat": [["Mexico"], ["Belize"], ["Guatemala"], ["Honduras"], ["Nicaragua"], ["Costa Rica"], ["Panama"], ["Colombia"], ["Ecuador"], ["Venezuela"], ["Brazil"], ["Suriname"], ["Guyana"], ["French Guiana"], ["Peru"], ["Bolivia"], ["Paraguay"], ["Argentina"]], "continent": ["NorthAmerica", "SouthAmerica"]}},
+    {"type":"Feature","properties": {"animal": "Wolverine", "difficulty": "hard", "habitat": [["Canada"], ["United States of America"], ["Norway"], ["Sweden"], ["Finland"], ["Russia"], ["Mongolia"], ["Colombia"]], "continent": ["NorthAmerica", "Europe", "Asia", "SouthAmerica"]}}
 
 ]}

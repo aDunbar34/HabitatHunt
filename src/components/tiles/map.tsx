@@ -36,29 +36,28 @@ function openMap({
     fillOpacity: 0.5,
   };
 
-   // Styling for a region highlighted for hint purposes
-   const hintStyle = {
+  // Styling for a region highlighted for hint purposes
+  const hintStyle = {
     fillColor: "#ffcc00", // Yellow for continent highlighting
     color: "black",
     weight: 1,
     fillOpacity: 0.4,
   };
 
-  // Function to handle clicks on a country
   const onCountryClick = (event: any) => {
     const layer = event.target;
-    const countryName = layer.feature.properties.name; // Adjust to match your GeoJSON property
+    const countryName = layer.feature.properties.name;
 
     setHighlightedCountries((prev) => {
       if (prev.includes(countryName)) {
-        // If the country is already highlighted, remove it
+        // If the country has already been highlighted/on the guess list we remove it
         const updatedList = prev.filter((name) => name !== countryName);
-        console.log("Updated Country List (removing):", updatedList); // Log after update
+        console.log("Updated Country List (removing):", updatedList); // Show on console (for testing)
         return updatedList;
       } else {
-        // Otherwise, add it to the list
+        // Otherwise we add to list and highlight
         const updatedList = [...prev, countryName];
-        console.log("Updated Country List (adding):", updatedList); // Log after update
+        console.log("Updated Country List (adding):", updatedList); // Show on console (for testing)
         return updatedList;
       }
     });
@@ -69,7 +68,6 @@ function openMap({
       click: onCountryClick, // Highlight and add country to list on click (or remove)
     });
   };
-
 
   return (
     <>
@@ -91,26 +89,27 @@ function openMap({
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
         />
 
-      <GeoJSON
-        data={geoJsonTypedData}
-        style={(feature) => {
-          if (!feature || !feature.properties) {
+        <GeoJSON
+          data={geoJsonTypedData}
+          style={(feature) => {
+            if (!feature || !feature.properties) {
+              return countryStyle;
+            }
+
+            const countryName = feature.properties.name;
+
+            if (highlightedCountries.includes(countryName)) {
+              return highlightStyle; // Bright green for manually selected
+            }
+            if (highlightedRegions.includes(countryName)) {
+              console.log(highlightedRegions);
+              return hintStyle; // Yellow for continent highlights
+            }
+
             return countryStyle;
-          }
-
-          const countryName = feature.properties.name;
-
-          if (highlightedCountries.includes(countryName)) {
-            return highlightStyle; // Bright green for manually selected
-          }
-          if (highlightedRegions.includes(countryName)) {
-            return hintStyle; // Yellow for continent highlights
-          }
-
-          return countryStyle;
-        }}
-        onEachFeature={onEachCountry}
-      />
+          }}
+          onEachFeature={onEachCountry}
+        />
       </MapContainer>
     </>
   );

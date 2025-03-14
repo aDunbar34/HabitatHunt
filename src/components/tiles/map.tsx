@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -13,7 +13,6 @@ function openMap({
   highlightedCountries,
   setHighlightedCountries,
   highlightedRegions,
-  setHighlightedRegions,
 }: {
   highlightedCountries: string[];
   setHighlightedCountries: React.Dispatch<React.SetStateAction<string[]>>;
@@ -63,7 +62,7 @@ function openMap({
     });
   };
 
-  const onEachCountry = (feature: any, layer: any) => {
+  const onEachCountry = (_feature: any, layer: any) => {
     layer.on({
       click: onCountryClick, // Highlight and add country to list on click (or remove)
     });

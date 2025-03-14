@@ -180,16 +180,6 @@ const Game: React.FC = () => {
     }
   };
 
-  const highlightRegion = (region: string) => {
-    if (!continentCountries[region]) {
-      console.error(`Error: No countries found for region "${region}"`);
-      return; // Prevents the error
-    }
-
-    setHighlightedRegions((prev) => [
-      ...new Set([...prev, ...continentCountries[region]]),
-    ]);
-  };
 
   const handleCloseHintPopup = () => {
     setShowHintPopUp(false);

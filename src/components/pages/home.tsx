@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 import HomePageTitle from "../../components/tiles/HomePageTitle";
 import Button from "../../components/tiles/startGameButton";

@@ -72,34 +72,29 @@
     max-width: fit-content;
 }
 
-/* STYLING FOR THE START GAME BUTTON */
-.start-game-btn {
-    font-size: 1.2rem;
-    transition: all 0.6s ease-in-out;
-    background-color: #1b3a4b;
-    text-transform: uppercase;
-    cursor: pointer;
-    max-width: fit-content;
-    max-height: 15vh;
-  }
-  
-  /* STYLING FOR WHEN THE USER HOVERS OVER THE START GAME BUTTON */
-  .start-game-btn:hover {
-    transform: scale(1.5);
-    opacity: 0.8;
-  }
-
 /* STYLING FOR THE POPUP THAT APPEARS AFTER START GAME BUTTON HAS BEEN PRESSED */
 .difficultyPopup {
     position: fixed;
-    top: 50%;
+    margin-top: 20rem;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #112240;
+    background-color: #1b3a4b;
     padding: 1rem;
     border: 1px black;
-    box-shadow: 0.5px 1px 1px 2px white;
+    box-shadow: 0.5px 1px 1px 2px #3490c2;
     z-index: 1000;
+}
+
+.difficultyPopup button {
+    padding: 10px 20px;
+    background-color: #1b3a4b;
+    color: #3490c2;
+    border: 3px solid #3490c2;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: SuperNormalFont;
+    text-transform: uppercase;
 }
 
 /* STYLING FOR THE POPUP MESSAGE AT THE START OF GAME.TSX */
@@ -163,6 +158,77 @@
 
 .finishButton button {
     padding: 10px 20px;
+    background-color: #1b3a4b;
+    color: #3490c2;
+    border: 3px solid #3490c2;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: SuperNormalFont;
+    text-transform: uppercase;
+}
+
+.beginButton button{
+    padding: 10px 20px;
+    margin-bottom: 2rem;
+    background-color: #1b3a4b;
+    color: #3490c2;
+    border: 3px solid #3490c2;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: SuperNormalFont;
+    text-transform: uppercase;
+}
+
+.scoreboardButton button {
+    padding: 10px 20px;
+    background-color: #1b3a4b;
+    color: #3490c2;
+    border: 3px solid #3490c2;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: SuperNormalFont;
+    text-transform: uppercase;
+}
+
+/* CSS for the Scoreboard Page */
+.scoreboard {
+
+    text-align: center;
+    padding: 2rem;
+    border: 3px solid #1b3a4b;
+}
+
+.scoreboard h1 {
+    color: #3490c2;
+    text-decoration: underline;
+}
+
+.scoreboard table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: "collapse";
+    border: 2px solid #1b3a4b;
+}
+
+.scoreboard table tr {
+    color: #3490c2;
+}
+
+.scoreboard table th {
+    border: 2px solid #3490c2;
+}
+
+.scoreboard table td {
+    padding: auto;
+    border: 2px solid #1b3a4b;
+}
+
+.returnButton button{
+    padding: 10px 20px;
+    margin-bottom: 2rem;
     background-color: #1b3a4b;
     color: #3490c2;
     border: 3px solid #3490c2;

@@ -1,15 +1,25 @@
 import { useNavigate } from "react-router-dom";
-import { useState} from "react";
+import { useState } from "react";
 
 import HomePageTitle from "../../components/tiles/HomePageTitle";
-import Button from "../../components/tiles/startGameButton";
 import "../css/components.css";
 
 function Home() {
   const [showPopup, setShowPopup] = useState(false);
+  const [showButtons, setShowButtons] = useState(true);
   const navigate = useNavigate();
   const handleNavigate = (difficulty: string) => {
     navigate(`/game/${difficulty}`);
+  };
+
+  const handleBeginClick = () => {
+    setShowPopup(true);
+    setShowButtons(false);
+  };
+
+  const handleScoreboardNav = () => {
+    setShowButtons(false);
+    navigate("/scoreboard");
   };
 
   return (
@@ -26,15 +36,18 @@ function Home() {
       <h1>
         <HomePageTitle />
       </h1>
-      <Button
-        border="3px solid #ccc"
-        height="10rem"
-        onClick={() => setShowPopup(true)}
-        radius="50%"
-        width="10rem"
-        children="Begin Game!"
-        hover="scale-105"
-      />
+
+      {showButtons && (
+        <>
+          <div className="beginButton">
+            <button onClick={handleBeginClick}>BEGIN GAME!</button>
+          </div>
+
+          <div className="scoreboardButton">
+            <button onClick={handleScoreboardNav}>SCOREBOARD</button>
+          </div>
+        </>
+      )}
 
       {showPopup && (
         <div className="difficultyPopup">

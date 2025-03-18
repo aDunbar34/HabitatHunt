@@ -10,8 +10,8 @@ function LoadAnimal({ randomAnimal }: LoadAnimalProps) {
       <div>
         <div>
           <img
-            src={"../public/images/" + randomAnimal + ".jpeg"}
-            alt="Image"
+            src={"../public/images/" + randomAnimal.toLowerCase() + ".jpeg"}
+            alt="${randomAnimal}"
             style={{
               width: "20vw",
               height: "30vh",

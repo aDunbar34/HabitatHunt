@@ -52,7 +52,7 @@ function Scoreboard() {
           </tr>
         </thead>
         <tbody>
-          {players.map((player, index) => (
+          {players.map((player) => (
             <tr key={player.id}>
               <td>{player.nickname}</td>
               <td>{player.streak}</td>

@@ -35,6 +35,7 @@ const Game: React.FC = () => {
   const [popupMessage, setPopupMessage] = useState("");
   const [hintPopupMessage, setHintPopUpMessage] = useState("");
 
+  // Randomize the animal we've to guess from the faunaJSON (of the specified difficulty)
   const randomize = () => {
     const features = (animalJsonData as any).features;
     if (Array.isArray(features) && features.length > 0) {
@@ -47,10 +48,10 @@ const Game: React.FC = () => {
       const randomI = Math.floor(Math.random() * filteredAnimals.length);
       const randomFeature = filteredAnimals[randomI];
 
-      const animalName = randomFeature?.properties?.animal || "Unknown Animal";
-      const habitat = randomFeature?.properties?.habitat || [];
+      const animalName = randomFeature?.properties?.animal || "Unknown Animal"; // Set the animal name to the random animal selected (or unknown if unable to find)
+      const habitat = randomFeature?.properties?.habitat || []; // Set the list of countries to match the habitat of the animal
 
-      const countries = habitat.flat();
+      const countries = habitat.flat(); // Easier to work with when we flatten it
 
       setRandomAnimal(animalName);
       setCorrectCountries(countries);
@@ -65,7 +66,9 @@ const Game: React.FC = () => {
     console.log("showHintPopup state changed:", showHintPopup);
   }, []);
 
+  // This function compares the selected countries of the user to the correct list of countries
   const compareCountries = () => {
+    // Evaluate no countries being selected
     if (highlightedCountries.length === 0) {
       setPopupMessage("No countries selected!");
       setShowPopup(true);
@@ -79,6 +82,7 @@ const Game: React.FC = () => {
     const totalCorrect = correctCountries.length; // Number of answers for the current animal
     const correctCount = matches.length; // Number of countries guessed correctly
 
+    // See if the player has guessed them all correctly
     if (
       correctCount === totalCorrect &&
       correctCount === highlightedCountries.length
@@ -86,13 +90,13 @@ const Game: React.FC = () => {
       // When the user guesses all correct
       setPopupMessage("Correct! All countries match!");
       setOnCloseCallback(true);
-      setHighlightedRegions([]);
-      setShowPopup(true);
-      incrementStreak();
-      setGuessCount(0);
-      sethint(false);
+      setHighlightedRegions([]); // Remove the highlight from selected countries
+      setShowPopup(true); // Show the "Correct" popup to show they've got it right
+      incrementStreak(); // Increase the player's streak
+      setGuessCount(0); // Reset guess count so user's don't immediately get a hint
+      sethint(false); // Clear any hints on the map already
     } else {
-      setGuessCount((prevGuessCount) => prevGuessCount + 1);
+      setGuessCount((prevGuessCount) => prevGuessCount + 1); // Increase the guess count
 
       if (guessCount <= 2) {
         // When the user has not guessed all correct
@@ -103,7 +107,7 @@ const Game: React.FC = () => {
           );
           setShowPopup(true);
         } else {
-          // When the user has guessed no countries
+          // When the user has guessed no countries (probably don't need this here)
           setPopupMessage("No correct countries guessed there! Keep trying!");
           setShowPopup(true);
         }
@@ -116,8 +120,7 @@ const Game: React.FC = () => {
           );
           setShowPopup(true);
         } else {
-          // When the ser has guessed no correct countries
-          console.log("None were correct, GC:", guessCount);
+          // When the user has guessed no correct countries
           setPopupMessage("No correct countries guessed there! Keep trying!");
           setShowPopup(true);
         }
@@ -140,7 +143,7 @@ const Game: React.FC = () => {
           setShowPopup(true);
         } else {
           // When the user has accepted a hint
-          // When the ser has guessed no correct countries
+          // When the user has guessed no correct countries
           setPopupMessage("No correct countries guessed there! Keep trying!");
           setShowPopup(true);
         }
@@ -148,7 +151,6 @@ const Game: React.FC = () => {
     }
   };
 
-  // Define the type for feature
   type AnimalFeature = {
     properties: {
       animal: string;
@@ -158,13 +160,14 @@ const Game: React.FC = () => {
     };
   };
 
+  // This is where we handle getting the continent of the animal for the hint
   const handleHint = () => {
-    handleCloseHintPopup();
+    handleCloseHintPopup(); // Close hint popup
     if (!randomAnimal) return;
 
     const animalData = (animalJsonData as any).features.find(
       (feature: AnimalFeature) => feature.properties.animal === randomAnimal
-    );
+    ); // Redeclare the animal data for us to work with
 
     if (animalData && animalData.properties.continent) {
       console.log("Hint Regions:", animalData.properties.continent);
@@ -174,13 +177,11 @@ const Game: React.FC = () => {
         (region: string) => continentCountries[region] || []
       ); // Ensures undefined values are skipped
 
-      console.log("All Highlighted Countries:", allCountries);
-
-      setHighlightedRegions((prev) => [...new Set([...prev, ...allCountries])]);
+      setHighlightedRegions((prev) => [...new Set([...prev, ...allCountries])]); // This is where the selected continents are highlighted for the hint
     }
   };
 
-
+  // Simply for closing the hint popup
   const handleCloseHintPopup = () => {
     setShowHintPopUp(false);
   };

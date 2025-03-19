@@ -8,8 +8,9 @@ function Home() {
   const [showPopup, setShowPopup] = useState(false);
   const [showButtons, setShowButtons] = useState(true);
   const navigate = useNavigate();
+
   const handleNavigate = (difficulty: string) => {
-    navigate(`/game/${difficulty}`);
+    navigate(`/game/${difficulty}`); // Navigate to the game page of the difficulty specified
   };
 
   const handleBeginClick = () => {
@@ -19,7 +20,7 @@ function Home() {
 
   const handleScoreboardNav = () => {
     setShowButtons(false);
-    navigate("/scoreboard");
+    navigate("/scoreboard"); // Navigate to the scoreboard page
   };
 
   return (

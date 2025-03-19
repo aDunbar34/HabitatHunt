@@ -21,15 +21,15 @@ function openMap({
 }) {
   // Base styling for all countries
   const countryStyle = {
-    fillColor: "#2E8B57",
-    color: "#006400",
+    fillColor: "#2E8B57", // base green for unselected countries
+    color: "green",
     weight: 2,
     fillOpacity: 0.5,
   };
 
   // Styling for a country highlighted after click event
   const highlightStyle = {
-    fillColor: "#0cf272",
+    fillColor: "#0cf272", // Lighter green for a selected country
     color: "black",
     weight: 1,
     fillOpacity: 0.5,

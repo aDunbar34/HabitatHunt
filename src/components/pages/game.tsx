@@ -435,8 +435,8 @@ const Game: React.FC = () => {
       alert("Please enter a nickname!");
       return;
     }
-
-    const { error } = await supabase.from("scoreboard").insert([
+    const { error } = await supabase
+      .from("scoreboard").insert([
       { nickname: scoreNickname, streak: streak }
     ]);
 
@@ -451,7 +451,7 @@ const Game: React.FC = () => {
 
   const handleEndRun = () => {
     navigate("/");
-  }
+  } 
 
   return (
     <GameLayout>

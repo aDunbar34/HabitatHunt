@@ -4,7 +4,6 @@ import GuessList from "../../components/tiles/guessList";
 import Submit from "../../components/tiles/submit";
 import StreakKeeper from "../../components/tiles/streakKeeper";
 import GameLayout from "../layouts/GameLayout";
-import FinishButton from "../tiles/finishButton";
 import { useStreak } from "../contexts/StreakContexts";
 
 import "../css/components.css";
@@ -13,6 +12,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import animalJsonData from "../../JSON/faunajson.json";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../../supabaseClient.ts";
 
 const Game: React.FC = () => {
   const [guessCount, setGuessCount] = useState(0);
@@ -24,7 +24,7 @@ const Game: React.FC = () => {
   const [highlightedRegions, setHighlightedRegions] = useState<string[]>([]);
   const [hint, sethint] = useState(false);
 
-  const { streak, incrementStreak } = useStreak();
+  const { streak, incrementStreak, resetStreak } = useStreak();
 
   const [randomAnimal, setRandomAnimal] = useState<string>("");
   const [correctCountries, setCorrectCountries] = useState<string[]>([]);
@@ -32,8 +32,11 @@ const Game: React.FC = () => {
   const [onCloseCallback, setOnCloseCallback] = useState(false);
   const [showPopup, setShowPopup] = useState(true);
   const [showHintPopup, setShowHintPopUp] = useState(false);
+  const [showExitPopup, setShowExitPopUp] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const [hintPopupMessage, setHintPopUpMessage] = useState("");
+  const [exitPopupMessage, setExitPopupMessage] = useState("");
+  const [scoreNickname, setScoreNickname] = useState("");
 
   // Randomize the animal we've to guess from the faunaJSON (of the specified difficulty)
   const randomize = () => {
@@ -59,9 +62,11 @@ const Game: React.FC = () => {
   };
 
   useEffect(() => {
+    resetStreak();
     setPopupMessage(
       "The aim of this game is to make accurate guesses on the native countries of the animal you see on the left side of the screen. Your selected countries will appear to the left as well in the list. Select countries by simply clicking them on the map! Once you are confident with your answers, hit Submit and see if you got them all correct! As an extra bit of fun, try and see how many you can get in a row!"
     );
+    setExitPopupMessage("Would you like to save your score under a nickname on the scoreboard?");
     randomize();
     console.log("showHintPopup state changed:", showHintPopup);
   }, []);
@@ -423,13 +428,23 @@ const Game: React.FC = () => {
     Antarctica: ["Antarctica"],
   };
 
+  const handleSubmitName = () => {
+    console.log(scoreNickname);
+  }
+
+  const handleEndRun = () => {
+    navigate("/");
+  }
+
   return (
     <GameLayout>
       <div className="left-content">
         <StreakKeeper streak={streak} />
         <LoadAnimal randomAnimal={randomAnimal} />
         <GuessList highlightedCountries={highlightedCountries} />
-        <FinishButton streak={streak} />
+        <div className="finishButton">
+          <button onClick={() => setShowExitPopUp(true)}>End Run</button>
+        </div>
       </div>
       <div className="right-content">
         <OpenMap
@@ -455,6 +470,18 @@ const Game: React.FC = () => {
           <div className="buttonContainer">
             <button onClick={handleCloseHintPopup}> No Thanks </button>
             <button onClick={handleHint}> Give Hint </button>
+          </div>
+        </div>
+      )}
+      {showExitPopup && (
+        <div className="exitPopup">
+          <p>{exitPopupMessage}</p>
+          <label>
+              Nickname: <input name="scoreNickname" value={scoreNickname} onChange={(e) => setScoreNickname(e.target.value)}/>
+          </label>
+          <div className="buttonContainer">
+            <button onClick={handleEndRun}>No Thanks</button>
+            <button onClick={handleSubmitName}>Submit</button>
           </div>
         </div>
       )}

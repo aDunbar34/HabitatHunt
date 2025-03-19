@@ -428,8 +428,25 @@ const Game: React.FC = () => {
     Antarctica: ["Antarctica"],
   };
 
-  const handleSubmitName = () => {
+  const handleSubmitName = async () => {
     console.log(scoreNickname);
+
+    if (!scoreNickname) {
+      alert("Please enter a nickname!");
+      return;
+    }
+
+    const { error } = await supabase.from("scoreboard").insert([
+      { nickname: scoreNickname, streak: streak }
+    ]);
+
+    if (error) {
+      console.error("Error inserting player data: ", error);
+    } else {
+      console.log("Player streak added successfully");
+      setShowExitPopUp(false);
+      handleEndRun();
+    }
   }
 
   const handleEndRun = () => {

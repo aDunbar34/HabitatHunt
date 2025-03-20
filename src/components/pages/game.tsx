@@ -28,6 +28,7 @@ const Game: React.FC = () => {
 
   const [randomAnimal, setRandomAnimal] = useState<string>("");
   const [correctCountries, setCorrectCountries] = useState<string[]>([]);
+  const [finishedAnimals, setFinishedAnimals] = useState<{ id: number, name: string}[]>([]);
 
   const [onCloseCallback, setOnCloseCallback] = useState(false);
   const [showPopup, setShowPopup] = useState(true);
@@ -48,8 +49,19 @@ const Game: React.FC = () => {
           feature?.properties?.difficulty?.toLowerCase() ===
           difficulty?.toLowerCase()
       );
-      const randomI = Math.floor(Math.random() * filteredAnimals.length);
-      const randomFeature = filteredAnimals[randomI];
+
+      const finishedAnimalNames = finishedAnimals.map((animal) => animal.name);
+
+      let availableAnimals = filteredAnimals.filter(
+        (animal) => !finishedAnimalNames.includes(animal?.properties?.animal)
+      )
+
+      if (availableAnimals.length === 0) {
+        availableAnimals = filteredAnimals;
+      }
+
+      const randomI = Math.floor(Math.random() * availableAnimals.length);
+      const randomFeature = availableAnimals[randomI];
 
       const animalName = randomFeature?.properties?.animal || "Unknown Animal"; // Set the animal name to the random animal selected (or unknown if unable to find)
       const habitat = randomFeature?.properties?.habitat || []; // Set the list of countries to match the habitat of the animal
@@ -68,9 +80,19 @@ const Game: React.FC = () => {
     );
     setExitPopupMessage("Would you like to save your score under a nickname on the scoreboard?");
     randomize();
+    setFinishedAnimals([]);
+    console.log(finishedAnimals);
     console.log("showHintPopup state changed:", showHintPopup);
   }, []);
 
+  
+  const updateFinishedAnimals = () => {
+    setFinishedAnimals((prevAnimals) => [
+      ...prevAnimals,
+      { id: prevAnimals.length + 1, name: randomAnimal }
+    ]);
+  };
+  
   // This function compares the selected countries of the user to the correct list of countries
   const compareCountries = () => {
     // Evaluate no countries being selected
@@ -100,6 +122,7 @@ const Game: React.FC = () => {
       incrementStreak(); // Increase the player's streak
       setGuessCount(0); // Reset guess count so user's don't immediately get a hint
       sethint(false); // Clear any hints on the map already
+      updateFinishedAnimals();
     } else {
       setGuessCount((prevGuessCount) => prevGuessCount + 1); // Increase the guess count
 

@@ -17,7 +17,6 @@
 
     {"type":"Feature","properties": {"animal": "Chinchilla", "difficulty": "medium","habitat": [["Peru"], ["Bolivia"], ["Chile"]], "continent": ["SouthAmerica"]}},
     {"type":"Feature","properties": {"animal": "Okapi", "difficulty": "medium","habitat": [["Democratic Republic of the Congo"], ["Uganda"], ["Rwanda"], ["Burundi"]], "continent": ["Africa"]}}, 
-    {"type":"Feature","properties": {"animal": "Black Caiman", "difficulty": "medium","habitat": [["Colombia"], ["Brazil"], ["Ecuador"], ["Peru"], ["Bolivia"]], "continent": ["SouthAmerica"]}},      
     {"type":"Feature","properties": {"animal": "Black Caiman", "difficulty": "medium","habitat": [["Colombia"], ["Brazil"], ["Ecuador"], ["Peru"], ["Bolivia"]], "continent": ["SouthAmerica"]}},
     {"type":"Feature","properties": {"animal": "Green Basilisk Lizard", "difficulty": "medium", "habitat": [["Costa Rica"], ["Panama"], ["Colombia"]], "continent": ["NorthAmerica", "SouthAmerica"]}},
     {"type":"Feature","properties": {"animal": "Polar Bear", "difficulty": "medium", "habitat": [["Canada"], ["United States of America"], ["Russia"], ["Greenland"], ["Norway"]], "continent": ["NorthAmerica", "Europe", "Asia"]}},

@@ -1,8 +1,8 @@
 .grid-container {
     display: grid;
-    grid-template-columns: 0.5fr 1fr; /* Two equal columns */
-    gap: 1rem; /* Space between columns */
-    height: 100vh; /* Full viewport height */
+    grid-template-columns: 0.5fr 1fr; /* This splits the page into to sections*/
+    gap: 1rem; /* Space between sections */
+    height: 100vh; 
     width: 100vw;
     overflow: hidden;
   }

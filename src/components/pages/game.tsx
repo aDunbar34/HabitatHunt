@@ -16,6 +16,8 @@ import { supabase } from "../../supabaseClient.ts";
 
 const Game: React.FC = () => {
   const [guessCount, setGuessCount] = useState(0);
+  const [randomAnimal, setRandomAnimal] = useState<string>("");
+
   const { difficulty } = useParams<{ difficulty: string }>();
   const navigate = useNavigate();
   const [highlightedCountries, setHighlightedCountries] = useState<string[]>(
@@ -25,10 +27,10 @@ const Game: React.FC = () => {
   const [hint, sethint] = useState(false);
 
   const { streak, incrementStreak, resetStreak } = useStreak();
-
-  const [randomAnimal, setRandomAnimal] = useState<string>("");
   const [correctCountries, setCorrectCountries] = useState<string[]>([]);
-  const [finishedAnimals, setFinishedAnimals] = useState<{ id: number, name: string}[]>([]);
+  const [finishedAnimals, setFinishedAnimals] = useState<
+    { id: number; name: string }[]
+  >([]);
 
   const [onCloseCallback, setOnCloseCallback] = useState(false);
   const [showPopup, setShowPopup] = useState(true);
@@ -54,7 +56,7 @@ const Game: React.FC = () => {
 
       let availableAnimals = filteredAnimals.filter(
         (animal) => !finishedAnimalNames.includes(animal?.properties?.animal)
-      )
+      );
 
       if (availableAnimals.length === 0) {
         availableAnimals = filteredAnimals;
@@ -78,21 +80,22 @@ const Game: React.FC = () => {
     setPopupMessage(
       "The aim of this game is to make accurate guesses on the native countries of the animal you see on the left side of the screen. Your selected countries will appear to the left as well in the list. Select countries by simply clicking them on the map! Once you are confident with your answers, hit Submit and see if you got them all correct! As an extra bit of fun, try and see how many you can get in a row!"
     );
-    setExitPopupMessage("Would you like to save your score under a nickname on the scoreboard?");
+    setExitPopupMessage(
+      "Would you like to save your score under a nickname on the scoreboard?"
+    );
     randomize();
     setFinishedAnimals([]);
     console.log(finishedAnimals);
     console.log("showHintPopup state changed:", showHintPopup);
   }, []);
 
-  
   const updateFinishedAnimals = () => {
     setFinishedAnimals((prevAnimals) => [
       ...prevAnimals,
-      { id: prevAnimals.length + 1, name: randomAnimal }
+      { id: prevAnimals.length + 1, name: randomAnimal },
     ]);
   };
-  
+
   // This function compares the selected countries of the user to the correct list of countries
   const compareCountries = () => {
     // Evaluate no countries being selected
@@ -459,9 +462,8 @@ const Game: React.FC = () => {
       return;
     }
     const { error } = await supabase
-      .from("scoreboard").insert([
-      { nickname: scoreNickname, streak: streak }
-    ]);
+      .from("scoreboard")
+      .insert([{ nickname: scoreNickname, streak: streak }]);
 
     if (error) {
       console.error("Error inserting player data: ", error);
@@ -470,11 +472,11 @@ const Game: React.FC = () => {
       setShowExitPopUp(false);
       handleEndRun();
     }
-  }
+  };
 
   const handleEndRun = () => {
     navigate("/");
-  } 
+  };
 
   return (
     <GameLayout>
@@ -517,7 +519,12 @@ const Game: React.FC = () => {
         <div className="exitPopup">
           <p>{exitPopupMessage}</p>
           <label>
-              Nickname: <input name="scoreNickname" value={scoreNickname} onChange={(e) => setScoreNickname(e.target.value)}/>
+            Nickname:{" "}
+            <input
+              name="scoreNickname"
+              value={scoreNickname}
+              onChange={(e) => setScoreNickname(e.target.value)}
+            />
           </label>
           <div className="buttonContainer">
             <button onClick={handleEndRun}>No Thanks</button>

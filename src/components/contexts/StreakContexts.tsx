@@ -1,5 +1,7 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
+// THIS FILE ENSURES STREAK IS KEPT CONSISTENT DURING A RUN
+
 interface StreakContextType {
   streak: number;
   incrementStreak: () => void;
